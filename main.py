@@ -1,0 +1,3 @@
+import sortings
+
+sortings.insertionSort()
