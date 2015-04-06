@@ -1,3 +1,9 @@
+"""
+Algorithms test client.
+"""
+
 import sortings
 
-sortings.insertionSort()
+RESULT = sortings.insertion_sort('a')
+print RESULT
+
