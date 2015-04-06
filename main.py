@@ -4,6 +4,6 @@ Algorithms test client.
 
 import sortings
 
-RESULT = sortings.insertion_sort('a')
+RESULT = sortings.selection_sort([2, 1, 3])
 print RESULT
 
