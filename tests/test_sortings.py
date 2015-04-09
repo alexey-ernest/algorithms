@@ -11,7 +11,7 @@ class SelectionSortTest(unittest.TestCase):
     """
 
     def test_selection(self):
-        """Simple test.
+        """Selection test.
         """
         self.assertEquals(sortings.selection_sort([2, 1, 3]), [1, 2, 3])
 
@@ -21,12 +21,12 @@ class InsertionSortTest(unittest.TestCase):
     """
 
     def test_insertion(self):
-        """Simple test.
+        """Insertion test.
         """
         self.assertEquals(sortings.insertion_sort([2, 1, 3]), [1, 2, 3])
 
     def test_antisorted(self):
-        """Sorts antisorted array.
+        """Sorts antisorted array using Insertion Sort algorithm.
         """
         items = range(10)
         self.assertEquals(sortings.insertion_sort(list(reversed(items))), items)        
