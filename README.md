@@ -1,2 +1,2 @@
-# algorithms
-Algos and data structures on Python
+# Algorithms
+Standard algorithms and data structures on Python.
