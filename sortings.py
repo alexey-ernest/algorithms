@@ -2,7 +2,7 @@
 Standard sorting algorithms.
 """
 
-def selection_sort(items):
+def sort_selection(items):
     """Sorts an array in place using Selection Sort algorithm.
 
     Uses ~n**2/2 compares and n exchanges to sort collection of length n.
@@ -25,7 +25,7 @@ def selection_sort(items):
         _exchange(items, i, min_index)
     return items
 
-def insertion_sort(items):
+def sort_insertion(items):
     """Sorts an array in place using Insertion Sort algorithm.
 
     Uses ~n**2/4 compares and ~n**2/4 exchanges to sort a randomly ordered 
@@ -49,6 +49,33 @@ def insertion_sort(items):
                 break
             _exchange(items, j, j - 1)
     return items
+
+def sort_insertion2(items):
+    """Sorts an array in place using improved Insertion Sort algorithm.
+
+    Number of array accesses is reduced twice.
+
+    Args:
+        items: array to sort.
+
+    Returns:
+        Sorted array.
+    """
+    if not items:
+        return []
+    
+    length = len(items)
+    for i in range(1, length):
+        insert_index = 0
+        item = items[i]
+        for j in reversed(range(1, i + 1)):
+            if item >= items[j - 1]:
+                insert_index = j
+                break
+            items[j] = items[j - 1]
+        items[insert_index] = item
+    return items
+
 
 def _exchange(items, i, j):
     """Exchanges values in collection.
