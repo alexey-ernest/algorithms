@@ -22,7 +22,7 @@ def selection_sort(items):
         for j in range(i + 1, length):
             if items[j] < items[min_index]:
                 min_index = j
-        exchange(items, i, min_index)
+        _exchange(items, i, min_index)
     return items
 
 def insertion_sort(items):
@@ -47,10 +47,10 @@ def insertion_sort(items):
         for j in reversed(range(1, i + 1)):
             if items[j] >= items[j - 1]:
                 break
-            exchange(items, j, j - 1)
+            _exchange(items, j, j - 1)
     return items
 
-def exchange(items, i, j):
+def _exchange(items, i, j):
     """Exchanges values in collection.
 
 	Args:
