@@ -5,7 +5,7 @@ Standard sorting algorithms.
 def sort_selection(items):
     """Sorts an array in place using Selection Sort algorithm.
 
-    Uses ~n**2/2 compares and n exchanges to sort collection of length n.
+    Uses ~n**2/2 compares and n (linear!) exchanges to sort collection of length n.
 
     Args:
         items: array to sort.
@@ -32,6 +32,10 @@ def sort_insertion(items):
     array of length n with distinct keys, on the average. The worst case is 
     ~n**2/2 compares and ~n**2/2 exchanges and the best case is n-1 compares
     and 0 exchanges.
+
+    Best for: array where each entry is not far from its final position
+              a small array appended to a large sorted array
+              an array with only a few entries that are not in place
 
     Args:
         items: array to sort.
