@@ -1,5 +1,5 @@
 """
-Standard sorting algorithms.
+sortings.py: standard sorting algorithms (python 2.7).
 """
 
 def selection_sort(items):

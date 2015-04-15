@@ -26,7 +26,7 @@ class InsertionSortTest(unittest.TestCase):
         self.assertEquals(sortings.insertion_sort([2, 1, 3]), [1, 2, 3])
 
     def test_antisorted(self):
-        """Sorts antisorted array using Insertion Sort algorithm.
+        """Sorts anti-ordered array using Insertion Sort algorithm.
         """
         items = range(10)
         self.assertEquals(sortings.insertion_sort(list(reversed(items))), items)        
