@@ -9,12 +9,9 @@ def sort_selection(items):
 
     Args:
         items: array to sort.
-
-    Returns:
-        Sorted array.
     """
     if not items: 
-        return []
+        return
 
     length = len(items)
     for i in range(length):
@@ -23,7 +20,6 @@ def sort_selection(items):
             if items[j] < items[min_index]:
                 min_index = j
         _exchange(items, i, min_index)
-    return items
 
 def sort_insertion(items):
     """Sorts an array in place using Insertion Sort algorithm.
@@ -39,20 +35,16 @@ def sort_insertion(items):
 
     Args:
         items: array to sort.
-
-    Returns:
-        Sorted array.
     """
     if not items:
-        return []
+        return
     
     length = len(items)
     for i in range(1, length):
-        for j in reversed(range(1, i + 1)):
+        for j in range(i, 0, -1):
             if items[j] >= items[j - 1]:
                 break
             _exchange(items, j, j - 1)
-    return items
 
 def sort_insertion2(items):
     """Sorts an array in place using improved Insertion Sort algorithm.
@@ -61,25 +53,45 @@ def sort_insertion2(items):
 
     Args:
         items: array to sort.
-
-    Returns:
-        Sorted array.
     """
     if not items:
-        return []
+        return
     
     length = len(items)
     for i in range(1, length):
         insert_index = 0
         item = items[i]
-        for j in reversed(range(1, i + 1)):
+        for j in range(i, 0, -1):
             if item >= items[j - 1]:
                 insert_index = j
                 break
             items[j] = items[j - 1]
         items[insert_index] = item
-    return items
 
+def sort_shell(items):
+    """Sorts an array in place using Shellsort algorithm.
+
+    Improves Insertion Sort algorithm by deviding array into subsequences.
+
+    Args:
+        items: array to sort.
+    """
+    length = len(items)
+    
+    # Calculating incrementing sequence (h in literature): 1, 4, 13, 40, 121, 364, 1093, ...
+    inc_seq = 1
+    while inc_seq < length // 3:
+        inc_seq = 3*inc_seq + 1
+
+    while inc_seq >= 1:
+        # h-sort the array.
+        for i in range(inc_seq, length):
+            for j in range(i, inc_seq-1, -inc_seq):
+                # insert items[i] among items[i-h], items[i-2*h], items[i-3*h]... .
+                if items[j] >= items[j-inc_seq]:
+                    break
+                _exchange(items, j, j-inc_seq)
+        inc_seq = inc_seq // 3
 
 def _exchange(items, i, j):
     """Exchanges values in collection.
